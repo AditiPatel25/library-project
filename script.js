@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function addBookToLibrary(title, author, pages, read) {
         const newBook = new Book(title, author, pages, read);
-        console.log(newBook.info())
         myLibrary.push(newBook);
     }
 
