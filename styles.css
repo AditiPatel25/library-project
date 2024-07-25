@@ -1,0 +1,152 @@
+:root {
+    --box-shadow-color: rgb(153, 152, 152);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fae1dd;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #e07b5f91;
+    border: none;
+    font-weight: 700;
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas:
+        "header header"
+        "sidebar books"
+}
+
+/* HEADER */
+
+.header {
+    padding: 1em;
+    background-color: white;
+    grid-area: header;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    background-color: rgba(213, 136, 136, 0.357);
+    padding: 20px;
+    grid-area: sidebar;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+input[type=text],
+input[type=number] {
+    height: 30px;
+    width: 250px;
+    border-radius: 5px;
+    border: none;
+    padding-inline-start: 10px;
+    
+}
+
+input[type=checkbox] {
+    width: 17px;
+    height: 1.5em;
+}
+
+.text-fields {
+    font-weight: 600;
+}
+
+input,
+label {
+    display: block;
+    margin: 5px;
+}
+
+input[text] {
+    width: 100px;
+    border: none;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid rgb(181, 227, 229);
+    box-shadow: 1px 1px 5px 1px var(--box-shadow-color);
+}
+
+.read-checkbox {
+    display: flex;
+    gap: 10px;
+}
+
+#form-element {
+    display: none;
+    margin-top: 20px;
+}
+
+/* BOOKS */
+
+.books {
+    grid-area: books;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-rows: min-content;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background-color: #FFFFFF;
+    height: 230px;
+    box-shadow: 2px 5px 4px -2px var(--box-shadow-color);
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.card p {
+    color: var(--subtext-color);
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+}
+
+.card .title {
+    font-size: 1.5rem;
+    text-align: left;
+    font-weight: 700;
+    color: black;
+}
+
+button:hover {
+    background-color: #e07b5f69;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+}

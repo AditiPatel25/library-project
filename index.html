@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>My Library</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>My Library</h1>
+        </div>
+        <div class="sidebar">
+            <div class="wrapper">
+                <button id="new-book">New Book</button>
+            </div>
+            <form id="form-element" method="post">
+                <div class="form-fields">
+                    <label for="title" class="text-fields">Title</label>
+                    <input type="text" name="title" id="title" required>
+                </div>
+                <div class="form-fields">
+                    <label for="author" class="text-fields">Author</label>
+                    <input type="text" name="author" id="author" required>
+                </div>
+                <div class="form-fields">
+                    <label for="pages" class="text-fields">Number of Pages</label>
+                    <input type="number" name="pages" id="pages" min=50 max=1000 required>
+                </div>
+                <div class="form-fields">
+                    <div class="read-checkbox">
+                        <label for="read" class="text-fields">Read</label>
+                        <input type="checkbox" name="read" id="read" value="yes">
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <button id="add-book">Add Book</button>
+                </div>
+            </form>
+
+        </div>
+        <div class="books" id="books">
+        </div>
+    </div>
+
+</body>
+
+</html>
