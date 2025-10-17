@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function displayBooks() {
         const bookSection = document.getElementById('books');
 
-        bookSection.innerHTML = ''; 
+        bookSection.innerHTML = '';
 
         myLibrary.forEach((book, index) => {
             const card = document.createElement("div");
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const removeButton = document.createElement("button");
             removeButton.textContent = "Remove Book";
             removeButton.addEventListener("click", function () {
-                myLibrary.splice(index, 1); 
+                myLibrary.splice(index, 1);
                 displayBooks();
             });
 
@@ -93,8 +93,25 @@ document.addEventListener('DOMContentLoaded', function () {
         const pages = document.getElementById('pages');
         const readChecked = document.getElementById('read');
 
-        if (!title.value || !author.value || !pages.value) {
-            alert('Please fill out all required fields.');
+        // clears custom validity before checking
+        title.setCustomValidity("");
+        author.setCustomValidity("");
+        pages.setCustomValidity("");
+
+        // checka each field and builds error message
+        if (title.validity.valueMissing) {
+            title.setCustomValidity("Title is required!");
+            title.reportValidity();
+            return;
+        }
+        if (author.validity.valueMissing) {
+            author.setCustomValidity("Author name is required!");
+            author.reportValidity();
+            return;
+        }
+        if (pages.validity.valueMissing) {
+            pages.setCustomValidity("Number of pages is required!");
+            pages.reportValidity();
             return;
         }
 
@@ -108,7 +125,15 @@ document.addEventListener('DOMContentLoaded', function () {
         author.value = '';
         pages.value = '';
         readChecked.checked = false;
+
+
     });
+
+    // Clear custom validity when user starts typing
+    title.addEventListener('input', () => title.setCustomValidity(""));
+    author.addEventListener('input', () => author.setCustomValidity(""));
+    pages.addEventListener('input', () => pages.setCustomValidity(""));
+
 
     addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, "yes");
     addBookToLibrary("1984", "George Orwell", 328, "no");
